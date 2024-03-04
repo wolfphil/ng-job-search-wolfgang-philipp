@@ -1,0 +1,19 @@
+<table style="overflow:visible">
+    <tr *ngFor="let job of jobs">
+        <td align="center" class="col-md-1">
+            <img width="50" height="50" style="vertical-align:middle;" [src]="job.companyLogo" />
+        </td>
+        <td class="col-md-10">
+            <span style="font-size:16px">
+                <b>{{job.title}}</b>
+            </span>
+            <br>
+            <span style="font-size:12px">
+                {{job.companyName}} &nbsp; &nbsp; &nbsp;{{job.reference}}
+            </span>
+        </td>
+        <td align="center" class="col-md-1">
+            <span class="icon-alert" style="width:25px;height:25px;vertical-align:middle;" id="star-{{job.id}}"></span>
+        </td>
+    </tr>
+</table>

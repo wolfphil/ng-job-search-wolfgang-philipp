@@ -4,10 +4,6 @@ import { AppComponent } from './app/app.component';
 import {setupWorker} from 'msw/browser';
 import {http, HttpResponse} from 'msw';
 
-bootstrapApplication(AppComponent, appConfig)
-  .catch((err) => console.error(err));
-
-
 
 const handlers = [
   http.get('/jobs/:id', ({ params }) => {
@@ -309,5 +305,8 @@ const handlers = [
   }),
 ];
 export const worker = setupWorker(...handlers);
-worker.start();
+worker.start().then(() => {
+  bootstrapApplication(AppComponent, appConfig)
+      .catch((err) => console.error(err));
+});
 
