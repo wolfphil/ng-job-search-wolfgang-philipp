@@ -1,15 +1,18 @@
 import {Component} from '@angular/core';
-import {RouterOutlet} from '@angular/router';
+import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import {JobListComponent} from "./job-list/job-list.component";
-import {HttpClientModule} from "@angular/common/http";
+import {CommonModule} from "@angular/common";
 
 
 @Component({
     selector: 'app-root',
     standalone: true,
     imports: [
+        CommonModule,
         JobListComponent,
-        RouterOutlet
+        RouterOutlet,
+        RouterLink,
+        RouterLinkActive
     ],
     templateUrl: './app.component.html',
     styleUrl: './app.component.css'

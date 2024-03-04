@@ -1,7 +1,18 @@
+<h1 align="center">Find your job</h1>
+
+<div class="tab" style="width:100%;">
+    <a routerLink="/all-jobs" routerLinkActive="active">
+        <button align="center" class="col-md-6" style="width:48%;" (click)="showAllJobs()">Jobs</button>
+    </a>
+    <a routerLink="/favorite-jobs" routerLinkActive="active">
+        <button align="center" class="col-md-6" style="width:48%;" (click)="showFavoriteJobs()">Favorites</button>
+    </a>
+</div>
+<br>
 <table style="overflow:visible">
-    <tr *ngFor="let job of jobs">
+    <tr *ngFor="let job of displayedJobs">
         <td align="center" class="col-md-1">
-            <img width="50" height="50" style="vertical-align:middle;" [src]="job.companyLogo" />
+            <img width="50" height="50" style="padding-top:5px;padding-bottom:5px;vertical-align:middle;" [src]="job.companyLogo" />
         </td>
         <td class="col-md-10">
             <span style="font-size:16px">
@@ -12,8 +23,9 @@
                 {{job.companyName}} &nbsp; &nbsp; &nbsp;{{job.reference}}
             </span>
         </td>
-        <td align="center" class="col-md-1">
-            <span class="icon-alert" style="width:25px;height:25px;vertical-align:middle;" id="star-{{job.id}}"></span>
+        <td *ngIf="!isFavoriteTab" align="center" class="col-md-1">
+            <img [src]="favoriteJobs.includes(job) ? '../../assets/images/favorite-icon-filled.png' : '../../assets/images/favorite-icon-outlined.png'" style="width:25px;height:25px;padding-top:17px" id="star-{{job.id}}" (click)="manageFavoriteJobs(job);"/>
+<!--            <span class="icon-star" style="width:25px;height:25px;vertical-align:middle;" id="star-{{job.id}}" [class.active]="favoriteJobs.includes(job)" (click)="manageFavoriteJobs(job);"></span>-->
         </td>
     </tr>
 </table>

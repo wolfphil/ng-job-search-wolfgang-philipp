@@ -9,22 +9,43 @@ import {CommonModule} from "@angular/common";
     standalone: true,
     imports: [CommonModule],
     templateUrl: './job-list.component.html',
-    styleUrl: '../../../node_modules/mini.css/dist/mini-dark.min.css'
+    styleUrl: 'job-list.component.css'
 })
 export class JobListComponent implements OnInit {
 
     jobService: JobService = inject(JobService);
-    jobs: Job[] = [];
-
+    allJobs: Job[] = [];
+    favoriteJobs: Job[] = [];
+    displayedJobs: Job[] = [];
+    isFavoriteTab:boolean = false;
 
     constructor() {}
 
     ngOnInit(): void {
         this.jobService.getJobs().subscribe(jobsList => {
-            console.log(jobsList);
-            this.jobs = jobsList
+            this.allJobs = jobsList
+            this.displayedJobs = jobsList
         });
-        console.log(this.jobs);
     }
-}
 
+    showAllJobs(): void {
+        this.displayedJobs = this.allJobs;
+        this.isFavoriteTab = false;
+    }
+
+    showFavoriteJobs(): void {
+        this.displayedJobs = this.favoriteJobs;
+        this.isFavoriteTab = true;
+    }
+
+    manageFavoriteJobs(job: Job): void {
+        const index: number = this.favoriteJobs.indexOf(job, 0);
+        if (index > -1) {
+            this.favoriteJobs.splice(index, 1);
+        }
+        else {
+            this.favoriteJobs.push(job);
+        }
+    }
+
+}
