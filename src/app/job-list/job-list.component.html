@@ -1,15 +1,3 @@
-<h1 align="center">Find your job</h1>
-
-<div class="tab" style="width:100%;">
-    <a routerLink="/all-jobs" routerLinkActive="active">
-        <button align="center" class="col-md-6" style="width:48%;" (click)="showAllJobs()">Jobs</button>
-    </a>
-    <a routerLink="/favorite-jobs" routerLinkActive="active">
-        <button align="center" class="col-md-6" style="width:48%;" (click)="showFavoriteJobs()">Favorites</button>
-    </a>
-</div>
-<br>
-
 <p *ngIf="displayedJobs.length == 0 && isFavoriteTab" align="center">No favorite selected</p>
 <p *ngIf="displayedJobs.length == 0 && !isFavoriteTab" align="center">No jobs found</p>
 
@@ -28,7 +16,7 @@
             </span>
         </td>
         <td *ngIf="!isFavoriteTab" align="center" class="col-md-1">
-            <img [src]="favoriteJobs.includes(job) ? '../../assets/images/favorite-icon-filled.png' : '../../assets/images/favorite-icon-outlined.png'" style="width:25px;height:25px;padding-top:17px" id="star-{{job.id}}" (click)="manageFavoriteJobs(job);"/>
+            <img [src]="favoriteJobIds.includes(job.id) ? '../../assets/images/favorite-icon-filled.png' : '../../assets/images/favorite-icon-outlined.png'" style="width:25px;height:25px;padding-top:17px" id="star-{{job.id}}" (click)="manageFavoriteJobs(job);"/>
 <!--            <span class="icon-star" style="width:25px;height:25px;vertical-align:middle;" id="star-{{job.id}}" [class.active]="favoriteJobs.includes(job)" (click)="manageFavoriteJobs(job);"></span>-->
         </td>
     </tr>

@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
-import {JobListComponent} from "./job-list/job-list.component";
 import {CommonModule} from "@angular/common";
+import {TabMenuComponent} from "./tab-menu/tab-menu.component";
 
 
 @Component({
@@ -9,10 +9,10 @@ import {CommonModule} from "@angular/common";
     standalone: true,
     imports: [
         CommonModule,
-        JobListComponent,
-        RouterOutlet,
+        TabMenuComponent,
         RouterLink,
-        RouterLinkActive
+        RouterLinkActive,
+        RouterOutlet
     ],
     templateUrl: './app.component.html',
     styleUrl: './app.component.css'

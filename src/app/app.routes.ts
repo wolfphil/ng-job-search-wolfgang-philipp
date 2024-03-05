@@ -4,11 +4,7 @@ import {JobListComponent} from "./job-list/job-list.component";
 
 export const routes: Routes = [
     {
-        path: 'all-jobs',
-        component: JobListComponent
-    },
-    {
-        path: 'favorite-jobs',
+        path: 'jobs',
         component: JobListComponent
     },
     {
