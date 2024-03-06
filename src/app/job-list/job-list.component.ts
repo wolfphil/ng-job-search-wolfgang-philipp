@@ -39,15 +39,18 @@ export class JobListComponent implements OnInit, DoCheck {
             const favoriteParameter = paramMap.get("favorites");
             if (favoriteParameter != null && favoriteParameter == 'true') {
                 this.isFavoriteTab = true;
+
                 this.displayedJobs = this.jobDataService.getFavoriteJobs();
                 this.favoriteJobIds = this.displayedJobs.map(job => job.id);
             }
             else {
                 this.isFavoriteTab = false;
+
                 this.jobDataService.getAllJobs().subscribe(jobsList => {
                     this.displayedJobs = jobsList;
                 });
             }
+            this.jobDataService.setFavorite(this.isFavoriteTab);
         });
     }
 

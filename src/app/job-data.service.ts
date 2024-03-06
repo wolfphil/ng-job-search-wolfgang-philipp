@@ -8,7 +8,8 @@ import {Observable} from "rxjs";
 })
 export class JobDataService {
 
-  private favoriteJobs: Map<number, Job> = new Map<number, Job>();
+    private favoriteJobs: Map<number, Job> = new Map<number, Job>();
+    private favorite: boolean = false;
 
   private jobService: JobService = inject(JobService);
 
@@ -36,5 +37,13 @@ export class JobDataService {
       this.favoriteJobs.set(jobId, job);
     }
   }
+
+    setFavorite(isFavorite: boolean): void {
+        this.favorite = isFavorite;
+    }
+
+    isFavorite(): boolean {
+        return this.favorite;
+    }
 
 }
