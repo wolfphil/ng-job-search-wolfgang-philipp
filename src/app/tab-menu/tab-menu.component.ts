@@ -7,24 +7,16 @@ import {CommonModule} from "@angular/common";
   selector: 'app-tab-menu',
   standalone: true,
   imports: [
-      CommonModule,
       RouterLink,
       RouterLinkActive,
-      RouterOutlet,
-      RouterModule
+      RouterOutlet
   ],
   templateUrl: './tab-menu.component.html',
   styleUrl: './tab-menu.component.css'
 })
-export class TabMenuComponent implements OnInit {
-
-  private route: ActivatedRoute = inject(ActivatedRoute);
+export class TabMenuComponent {
 
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit(): void {
-    console.log("routes in TabMenuComponent", this.route.toString());
-  }
 }

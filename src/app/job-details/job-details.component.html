@@ -19,7 +19,7 @@
             <div *ngFor="let industry of job.industries" style="float:left;clear:none;pointer-events:none;">
                 <button style="background-color:#0096FF;width:fit-content;">
                     <span style="font-size:14px">
-                        {{industry}}
+                        <div [innerHTML]="industry"></div>
                     </span>
                 </button>
             </div>
