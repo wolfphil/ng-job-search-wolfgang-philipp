@@ -1,12 +1,14 @@
-<h1 align="center">Find your job</h1>
+<div style="padding-top:20px;padding-left:80px;padding-right:80px">
+    <h1 align="center">Find your job</h1>
 
-<div class="tab" style="width:100%;">
-    <a [routerLink]="['/jobs']" [queryParams]="{ favorites: 'false'}">
-        <button align="center" class="col-md-6" routerLinkActive="active" style="width:48%;">Jobs</button>
-    </a>
-    <a [routerLink]="['/jobs']" [queryParams]="{ favorites: 'true'}">
-        <button align="center" class="col-md-6" routerLinkActive="active" style="width:48%;">Favorites</button>
-    </a>
+    <div class="tab" style="width:100%;">
+        <a [routerLink]="['/jobs']" [queryParams]="{ favorites: 'false'}">
+            <button align="center" class="col-md-6" routerLinkActive="active" style="width:48%;">Jobs</button>
+        </a>
+        <a [routerLink]="['/jobs']" [queryParams]="{ favorites: 'true'}">
+            <button align="center" class="col-md-6" routerLinkActive="active" style="width:48%;">Favorites</button>
+        </a>
+    </div>
+    <br>
+    <router-outlet></router-outlet>
 </div>
-<br>
-<router-outlet></router-outlet>

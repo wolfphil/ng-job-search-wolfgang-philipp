@@ -19,6 +19,10 @@ export class JobService {
         return this.httpClient.get<Job[]>(JobService.CONTEXT_PATH_ALL_JOBS).pipe(catchError(this.handleError));
     }
 
+    getJob(jobId: number): Observable<Job> {
+        return this.httpClient.get<Job>(JobService.CONTEXT_PATH_ALL_JOBS + "/" + jobId).pipe(catchError(this.handleError));
+    }
+
     private handleError(error: HttpErrorResponse) {
         if (error.status === 0) {
             // A client-side or network error occurred. Handle it accordingly.

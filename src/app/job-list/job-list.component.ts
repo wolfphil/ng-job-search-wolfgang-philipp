@@ -6,14 +6,19 @@ import {
 } from '@angular/core';
 import {Job} from "../job";
 import {CommonModule} from "@angular/common";
-import {ActivatedRoute, RouterModule} from "@angular/router";
+import {ActivatedRoute, RouterLink, RouterLinkActive, RouterModule} from "@angular/router";
 import {JobDataService} from "../job-data.service";
 
 
 @Component({
     selector: 'app-job-list',
     standalone: true,
-    imports: [CommonModule, RouterModule],
+    imports: [
+        CommonModule,
+        RouterModule,
+        RouterLink,
+        RouterLinkActive,
+    ],
     templateUrl: './job-list.component.html',
     styleUrl: 'job-list.component.css'
 })

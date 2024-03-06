@@ -19,6 +19,10 @@ export class JobDataService {
     return this.jobService.getJobs();
   }
 
+  getJob(jobId: number): Observable<Job> {
+    return this.jobService.getJob(jobId);
+  }
+
   getFavoriteJobs(): Job[] {
     return Array.from(this.favoriteJobs.values());
   }
